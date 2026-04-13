@@ -1,0 +1,27 @@
+{
+  "overview": "A complete, visually stunning real estate showcase website for Aggarwal Properties — a premium real estate agency in Delhi, India. Features luxury Navy & Gold branding, 5 fully designed pages, filterable property listings, enquiry forms, testimonials carousel, and WhatsApp integration. Built as a client-facing demo with hardcoded dummy data.",
+  "features": [
+    "5-page real estate website (Home, Properties, Property Detail, About, Contact)",
+    "Navy & Gold luxury branding with Playfair Display + DM Sans typography",
+    "Featured property listings with filter by Type, Category, BHK, and Location",
+    "Swiper.js testimonials carousel with autoplay and touch support",
+    "Enquiry forms with validation and success notifications on all key pages",
+    "Floating WhatsApp button with pulse animation on all pages",
+    "Fully responsive from 320px mobile to 1920px desktop",
+    "Smooth scroll animations and hover interactions throughout",
+    "Sticky navbar with scroll-triggered background transition",
+    "Hardcoded dummy data: 6 properties + 4 testimonials"
+  ],
+  "category": "real-estate",
+  "tags": [
+    "real-estate",
+    "delhi",
+    "property",
+    "showcase",
+    "react",
+    "tailwind",
+    "navy-gold",
+    "india"
+  ],
+  "last_updated": "2026-04-13T17:24:52.417Z"
+}

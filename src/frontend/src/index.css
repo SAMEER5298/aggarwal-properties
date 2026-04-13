@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: "DM Sans", system-ui, sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --radius: 0.75rem;
+
+    /* Navy & Gold Luxury Palette - Light Mode */
+    --background: 0.98 0.01 30;
+    --foreground: 0.12 0.04 270;
+    --card: 0.99 0.005 30;
+    --card-foreground: 0.12 0.04 270;
+    --popover: 0.99 0.005 30;
+    --popover-foreground: 0.12 0.04 270;
+
+    /* Primary - Deep Navy */
+    --primary: 0.1 0.05 270;
+    --primary-foreground: 0.98 0.01 30;
+
+    /* Secondary - Light Navy */
+    --secondary: 0.25 0.04 270;
+    --secondary-foreground: 0.98 0.01 30;
+
+    /* Muted - Pale Gold backgrounds */
+    --muted: 0.95 0.04 60;
+    --muted-foreground: 0.32 0.04 270;
+
+    /* Accent - Gold */
+    --accent: 0.72 0.15 60;
+    --accent-foreground: 0.12 0.04 270;
+
+    /* Destructive */
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    /* Borders & Inputs */
+    --border: 0.9 0.01 60;
+    --input: 0.93 0.01 60;
+    --ring: 0.72 0.15 60;
+
+    /* Charts */
+    --chart-1: 0.72 0.15 60;
+    --chart-2: 0.1 0.05 270;
+    --chart-3: 0.58 0.06 260;
+    --chart-4: 0.81 0.12 60;
+    --chart-5: 0.32 0.04 270;
+
+    /* Sidebar */
+    --sidebar: 0.98 0.01 30;
+    --sidebar-foreground: 0.12 0.04 270;
+    --sidebar-primary: 0.1 0.05 270;
+    --sidebar-primary-foreground: 0.98 0.01 30;
+    --sidebar-accent: 0.72 0.15 60;
+    --sidebar-accent-foreground: 0.12 0.04 270;
+    --sidebar-border: 0.9 0.01 60;
+    --sidebar-ring: 0.72 0.15 60;
+  }
+
+  .dark {
+    --background: 0.12 0.04 270;
+    --foreground: 0.95 0.01 30;
+    --card: 0.15 0.04 270;
+    --card-foreground: 0.95 0.01 30;
+    --popover: 0.18 0.04 270;
+    --popover-foreground: 0.95 0.01 30;
+    --primary: 0.08 0.03 270;
+    --primary-foreground: 0.95 0.01 30;
+    --secondary: 0.22 0.04 270;
+    --secondary-foreground: 0.88 0.01 30;
+    --muted: 0.18 0.04 270;
+    --muted-foreground: 0.72 0.08 60;
+    --accent: 0.81 0.12 60;
+    --accent-foreground: 0.08 0.03 270;
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.95 0.01 30;
+    --border: 0.22 0.04 270;
+    --input: 0.22 0.04 270;
+    --ring: 0.81 0.12 60;
+    --chart-1: 0.81 0.12 60;
+    --chart-2: 0.95 0.01 30;
+    --chart-3: 0.72 0.08 60;
+    --chart-4: 0.58 0.06 260;
+    --chart-5: 0.88 0.01 30;
+    --sidebar: 0.15 0.04 270;
+    --sidebar-foreground: 0.95 0.01 30;
+    --sidebar-primary: 0.08 0.03 270;
+    --sidebar-primary-foreground: 0.95 0.01 30;
+    --sidebar-accent: 0.81 0.12 60;
+    --sidebar-accent-foreground: 0.08 0.03 270;
+    --sidebar-border: 0.22 0.04 270;
+    --sidebar-ring: 0.81 0.12 60;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  /* Font utilities */
+  .font-display {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  .font-body {
+    font-family: "DM Sans", system-ui, sans-serif;
+  }
+
+  /* Transition utility */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Gold underline slide animation on nav links */
+  .nav-link {
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #c9a84c;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .nav-link.active {
+    color: #c9a84c;
+  }
+
+  /* Card hover scale effect */
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s
+      cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(11, 29, 58, 0.12);
+  }
+
+  /* CTA button press effect */
+  .btn-press {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-press:active {
+    transform: scale(0.97);
+  }
+
+  /* Fade-in on scroll (triggered by .visible class added via Intersection Observer) */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger delays for children */
+  .fade-in-up[data-delay="1"] {
+    transition-delay: 0.1s;
+  }
+  .fade-in-up[data-delay="2"] {
+    transition-delay: 0.2s;
+  }
+  .fade-in-up[data-delay="3"] {
+    transition-delay: 0.3s;
+  }
+  .fade-in-up[data-delay="4"] {
+    transition-delay: 0.4s;
+  }
+  .fade-in-up[data-delay="5"] {
+    transition-delay: 0.5s;
+  }
+
+  /* Scale utilities */
+  .scale-102 {
+    transform: scale(1.02);
+  }
+
+  .scale-97 {
+    transform: scale(0.97);
+  }
+
+  /* WhatsApp pulse ring animation */
+  .whatsapp-pulse {
+    animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  }
+
+  /* Hero gold glow */
+  .gold-glow {
+    box-shadow: 0 0 60px rgba(201, 168, 76, 0.15), 0 0 120px
+      rgba(201, 168, 76, 0.08);
+  }
+
+  /* Gold dot pattern for hero */
+  .gold-dot-pattern {
+    background-image: radial-gradient(
+      circle,
+      rgba(201, 168, 76, 0.15) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+  }
+
+  /* Section dividers */
+  .section-divider {
+    border-top: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  /* Badge utilities */
+  .badge-available {
+    background-color: #16a34a;
+    color: white;
+  }
+
+  .badge-sold {
+    background-color: #dc2626;
+    color: white;
+  }
+
+  .badge-rented {
+    background-color: #2563eb;
+    color: white;
+  }
+
+  .badge-featured {
+    background-color: #c9a84c;
+    color: #0b1d3a;
+  }
+
+  /* Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .fade-in-up {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .card-hover:hover {
+      transform: none;
+    }
+
+    .btn-press:active {
+      transform: none;
+    }
+
+    .whatsapp-pulse {
+      animation: none;
+    }
+
+    .nav-link::after {
+      transition: none;
+    }
+  }
+}
